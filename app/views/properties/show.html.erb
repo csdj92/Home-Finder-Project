@@ -1,0 +1,42 @@
+<%=flash[:error] %>
+
+
+<div class="listing-header" style="object-fit:cover; background-image:url('<%= @property.image_url(:large) %>')"></div>
+
+
+<div class='container-fluid'>
+    <div id="HomeDetails" class="HomeDetails"><div class="Collapsable"><div class="Collapsable__maxHeightContent" style="max-height: 100px;"><div class="HomeDetails__detailsText">Welcome to the Huntsford Farm Community! Don't miss this open floor plan Townhome that features a 2 story great room with a palladium window. The kitchen offers plenty of cabinet &amp; counter space with eat-in dinette area leading to sliding glass doors &amp; rear deck. A convenient first floor laundry area leads to a nice sized 2 car attached garage. The first floor bedroom or office space features a closet, attached private bath &amp; french doors. Retreat to the spacious master bedroom that offers 2 closets (1 closet is a nice sized walk in closet) vaulted ceilings &amp; beautiful palladium window overlooking the front of a beautiful neighborhood. This property won't last! Schedule your private showing and make an offer today!</div></div><div class="Collapsable__label"><div class="icon icon-drop-down-arrow"></div>See More</div></div><div class="HomeDetails__mlsSource">Source: YES MLS</div><div class="HomeDetails__mlsNumber">MLS#: 4238531</div></div>
+
+  <div class='row'>
+  <p class='mb-0'> <%= @property.address %> </p>
+        <p> <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %> </p>
+    <div class= 'col-sm-8'>
+    <p class='mb-0'> <%= @property.address %> </p>
+        <p> <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %> </p>
+     <div class="row">
+      <div class='col-lg-6'>
+        <p class='mb-0'> <%= @property.address %> </p>
+        <p> <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %> </p>
+      </div>
+     </div>
+    
+    
+
+    
+
+    <p>
+      <strong>Rooms:</strong>
+      <%= @property.rooms %>
+    </p>
+
+    <p>
+      <strong>Bathrooms:</strong>
+      <%= @property.bathrooms %>
+    </p>
+    <%# image_tag @property.image_url, style: "width:200px; display:block" %>
+
+    <%= link_to 'Edit', edit_property_path(@property) %> |
+    <%= link_to 'Back', properties_path %>
+    </div>
+  </div>
+</div>

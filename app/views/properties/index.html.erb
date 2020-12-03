@@ -1,0 +1,35 @@
+<%=flash[:error] %>
+
+<h3>Properties</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Rooms</th>
+      <th>Bathrooms</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.company.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.price %></td>
+        <td><%= property.rooms %></td>
+        <td><%= property.bathrooms %></td>
+        <td><%= link_to 'Show', property %></td>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path, class:"btn btn-success" %>

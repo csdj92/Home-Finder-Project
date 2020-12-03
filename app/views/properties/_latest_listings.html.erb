@@ -1,0 +1,31 @@
+
+<% @properties.each do |p| %>
+    <div class="col-sm-3">
+                  
+            <div class="card">
+                <div class="post">
+                    <div class="header_post">
+                    <%= prop_photo p  %>
+                    </div>
+
+                    <div class="body_post">
+                        <div class="post_content">
+
+                            <h1><%=  p.company.name%></h1>
+                            <p><%= p.address %>.</p>
+
+                            <div class="container_infos">
+                                <div class="postedBy">
+                                    <span>View Listing</span>
+                                    <%= link_to "Lisiting", property_path(p) %>
+                                </div>
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+<% end%>

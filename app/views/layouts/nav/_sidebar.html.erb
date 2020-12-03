@@ -1,0 +1,35 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <%= link_to dashboard_path, class: "nav-link" do %>
+                <i class="fas fa-house-user"></i>
+                  Dashboard <span class="sr-only">(current)</span>
+                    <% end %>
+              </li>
+              <li class="nav-item">
+                 <%= link_to properties_path, class: "nav-link" do %>
+                 <i class="fas fa-home"></i>
+                  Listings
+                <% end%>
+              </li>
+              <li class="nav-item">
+                 <%= link_to edit_account_registration_path, class: "nav-link" do %>
+                 <i class="fas fa-home"></i>
+                  Account
+                <% end%>
+              </li><li class="nav-item">
+                 <%= link_to companies_path, class: "nav-link" do %>
+                 <i class="fas fa-home"></i>
+                  Companies
+                <% end%>
+              </li><li class="nav-item">
+                 <%= link_to properties_path, class: "nav-link" do %>
+                 <i class="fas fa-home"></i>
+                  Listings
+                <% end%>
+              </li>
+             
+            </ul>
+          </div>
+        </nav>

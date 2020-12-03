@@ -1,9 +1,12 @@
 class CompaniesController < ApplicationController
     before_action :set_company, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_account!, only: [:new,:create,:destroy]
+    before_action :authorize, only:[:edit, :update, :destroy]
 
     
     def index
       @companies = Company.all
+      
     end
   
  
@@ -17,12 +20,13 @@ class CompaniesController < ApplicationController
     end
   
    
-    def edit
+    def edit       
     end
   
     
     def create
       @company = Company.new(company_params)
+      @company.account_id = current_account.id
   
       if @company.valid?
         @company.save
@@ -60,6 +64,15 @@ class CompaniesController < ApplicationController
       end
   
       def company_params
-        params.fetch(:company, {}).permit(:name, :website, :address, :year_founded, :size, :revenue, :synopsis)
+        params.fetch(:company, {}).permit(:name, :website, :address, :year_founded, :size, :revenue, :synopsis,:image,:accounts)
       end
+
+      def authorize
+        if current_account.id == @company.account_id
+        else
+          flash[:error] = "You do not have authorization to edit this Company" 
+          redirect_to companies_path
+        end
+             
+    end
   end

@@ -1,0 +1,33 @@
+ <section class="form-auth text-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+
+       
+         <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", class: "form-control", placeholder:"First Name" %>
+         <%= f.text_field :last_name,  autocomplete: "family-name", class: "form-control", placeholder:"Last Name" %>
+         <%= f.email_field :email,  autocomplete: "email", class: "form-control", placeholder:"Email" %>
+
+        
+         <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password Confirmation" %>
+
+        
+          
+          <div class="form-group">
+            <%= f.label :company %> <br />
+            <%= f.collection_select(:company_id, Company.all, :id, :name, { :prompt=>"Select a Company" }, { :class => "form-control" }) %>
+          </div>
+
+      
+        
+       
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <% end %>
+         <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+   
+  <%= render "devise/shared/links" %>
+</section>

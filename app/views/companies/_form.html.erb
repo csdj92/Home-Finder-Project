@@ -1,0 +1,64 @@
+<%= form_with(model: company, local: true) do |f| %>
+  <div class="container">
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :website %>
+      <%= f.text_field :website, :class => "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, :class => "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :year_founded %>
+      <%= f.text_field :year_founded, :class => "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :size %>
+      <%= f.select(:size, Company.sizes.keys, {}, { :class => "form-control" }) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :revenue %>
+      <%= f.select(:revenue, Company.revenues.keys, {}, { :class => "form-control"}) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :synopsis %>
+      <%= f.text_field :synopsis, :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.hidden_field :image, value: @photo&.cached_image_data %>
+      <%= f.file_field :image %>
+    </div>
+
+    <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.submit :class=> "btn btn-success" %>
+      <%= link_to 'Back', companies_path, :class=>"btn btn-secondary"%>
+    </div>
+  </div>
+<% end %>

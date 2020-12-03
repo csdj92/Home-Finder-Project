@@ -1,0 +1,52 @@
+ <div class="company-header" style="background-image:url('<%= @company.image_url(:large) %>')"></div>
+
+ <div class='container-fluid'>
+ 
+
+    <p>
+      <strong>Name:</strong>
+      <%= @company.name %>
+    </p>
+
+    <p>
+      <strong>Website:</strong>
+      <%= @company.website %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @company.address %>
+    </p>
+
+    <p>
+      <strong>Size:</strong>
+      <%= @company.size %>
+    </p>
+
+    <p>
+      <strong>Year Founded:</strong>
+      <%= @company.year_founded %>
+    </p>
+
+     <p>
+      <strong>Revenue:</strong>
+      <%= @company.revenue %>
+    </p>
+
+     <p>
+      <strong>Synopsis:</strong>
+      <%= @company.synopsis %>
+    </p>
+
+
+    
+
+    <%= link_to 'Edit', edit_company_path(@company) %> |
+    <%= link_to 'Back', companies_path %> |
+    <%= link_to  'New listing', new_company_property_path(@company) %> |
+    <%= link_to  'Listings', company_properties_path(@company) %> 
+    
+
+
+    
+</div>

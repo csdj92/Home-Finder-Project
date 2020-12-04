@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Your Home
 
-Things you may want to cover:
+Your Home is a web application that allows users to sign up or log in with an enabled third party authentication system. Once you login you are able to view other listings, create listings, and create companies. I plan to add admin functions at a later time.
 
-* Ruby version
+## Installation
 
-* System dependencies
+You will need to install the necessary gems to run the application. Please clone this repository and run the following lines in your terminal:
 
-* Configuration
+$ bundle install $ rails db:migrate
 
-* Database creation
+For image uploading you will need to install ImageMagick on to your machine. Install instructions can be found here <http://www.imagemagick.org/script/download.php>
 
-* Database initialization
+For general use of Shrine gem you can look here <https://shrinerb.com/>
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
+In order to start using the application, enter the following line in your terminal:
 
-* Deployment instructions
+$ rails s
 
-* ...
+Next, open the server link in your browser (I recommend using Chrome) and enjoy using the application!
